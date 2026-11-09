@@ -33,4 +33,10 @@ public class UserService {
     public User fromDto(UserDto objDto) {
         return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
     }
+
+    public void delete(String id) {
+        userRepository.findById(id).orElseThrow(()
+                -> new ObjectNotFoundException("User not found"));
+        userRepository.deleteById(id);
+    }
 }
