@@ -2,6 +2,7 @@ package com.rodri.dev.workshopmongo.config;
 
 import com.rodri.dev.workshopmongo.domain.Post;
 import com.rodri.dev.workshopmongo.domain.User;
+import com.rodri.dev.workshopmongo.dto.AuthorDto;
 import com.rodri.dev.workshopmongo.repository.PostRepository;
 import com.rodri.dev.workshopmongo.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -35,7 +36,7 @@ public class Instantiation implements CommandLineRunner {
         User alex = new User(null, "Alex Green", "alex@gmal.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
 
-        Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para SP, Abraços!");
+        Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para SP, Abraços!", new AuthorDto(maria));
 
         userRepository.saveAll(Arrays.asList(maria, alex, bob));
         postRepository.save(post1);
